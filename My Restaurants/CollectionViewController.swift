@@ -163,15 +163,6 @@ class CollectionViewController: UICollectionViewController, FilterCollectionView
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "My Restaurants"
         changeLayout()
-        
-        let myURLComps = URLComponents(string: "https://images.dog.ceo/breeds/poodle-standard/n02113799_2292.jpg")
-
-        if let theseComps = myURLComps {
-            let thisPath = theseComps.path
-            let path = thisPath.components(separatedBy: "/")
-            let a = path[2]
-            print(a.replacingOccurrences(of: "-", with: " ").capitalized)
-        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
