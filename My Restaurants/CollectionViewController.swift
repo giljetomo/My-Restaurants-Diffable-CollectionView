@@ -58,8 +58,12 @@ class CollectionViewController: UICollectionViewController, FilterCollectionView
         layoutButton.image = UIImage(named: layout.rawValue)
         navigationItem.setRightBarButton(layoutButton, animated: true)
         navigationItem.rightBarButtonItem?.tintColor = UIColor.Theme1.black
-        
         collectionView.setCollectionViewLayout(generateLayout(), animated: true)
+        
+        //these settings are needed to get the contentview stick to the top when layout changes
+        navigationController?.navigationBar.isTranslucent = false
+        collectionView.contentOffset.y = 0
+        navigationController?.navigationBar.isTranslucent.toggle()
     }
     //normal implementation - for reference
     //    private var restaurantSnapshot: Snapshot {
@@ -162,6 +166,7 @@ class CollectionViewController: UICollectionViewController, FilterCollectionView
         navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "My Restaurants"
+        navigationController?.navigationBar.isTranslucent = true
         changeLayout()
     }
     override func viewDidLoad() {
